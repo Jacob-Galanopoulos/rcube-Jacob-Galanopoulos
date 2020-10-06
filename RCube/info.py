@@ -1,5 +1,5 @@
 def _info(parms):
-    USERID = 'umphress'    #Replace with your id
+    USERID = 'jdg0058'    #Replace with your id
     result = {'user': USERID}
     return result
 
