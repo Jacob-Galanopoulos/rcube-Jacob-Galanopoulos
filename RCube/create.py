@@ -24,6 +24,6 @@ def _create(parms):
                     output = output.join(char)
                     i += 1
         
-        integrity = hashlib.sha256(faces).hexdigest().upper()
+        integrity = hashlib.sha256(output).hexdigest().upper()
         correctReturn = {'cube': output, 'integrity': integrity, 'status': 'ok'}
         return correctReturn
