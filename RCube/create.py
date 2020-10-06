@@ -1,11 +1,8 @@
 import hashlib
 
 def _create(parms):
-    defaultReturn = {'cube': 'gggggggggyyyyyyyyybbbbbbbbbwwwwwwwwwrrrrrrrrrooooooooo', 
-                          'integrity': '763F71B164EF77E6916F1C2CBAEB3B2C3CA9A876AC6A94A97D6B0EF1C489E289', 
-                          'status':'ok'}
     if(not("faces" in parms)):
-        return defaultReturn
+        faces = 'gybwro'
     else:
         faces = parms["faces"]
     
