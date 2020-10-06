@@ -1,7 +1,7 @@
 import hashlib
 
 def _create(parms):
-    if(not("faces" in parms)):
+    if(not('faces' in parms)):
         faces = 'gybwro'
     else:
         faces = parms["faces"]
