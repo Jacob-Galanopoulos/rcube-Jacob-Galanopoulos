@@ -18,6 +18,8 @@ def _create(parms):
             else:
                 output = output + (9 * char)
         
-        integrity = hashlib.sha256(output).hexdigest().upper()
+        integrity = hashlib.sha256(output)
+        integrity = integrity.hexdigest()
+        integrity = integrity.upper()
         correctReturn = {'cube': output, 'integrity': integrity, 'status': 'ok'}
         return correctReturn
