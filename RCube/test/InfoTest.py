@@ -14,5 +14,5 @@ class Test(unittest.TestCase):
         expectedResult = {'user': 'jdg0058'}
         parms = {'op': 'info'}
         actualResult = info._info(parms)
-        self.asserDictEqual(expectedResult, actualResult)
+        self.assertDictEqual(expectedResult, actualResult)
 
