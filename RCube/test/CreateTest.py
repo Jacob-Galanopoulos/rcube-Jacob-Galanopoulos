@@ -44,22 +44,22 @@ class Test(unittest.TestCase):
         actualResult = create._create(parms)
         self.assertDictEqual(expectedResult, actualResult)
         
-    def test200_010_SadPathTooManyFaces(self):
+    def test200_910_SadPathTooManyFaces(self):
         expectedResult = {'status': 'error: Incorrect length of faces - must be exactly 6 faces'}
         parms = {'op': 'create',
                  'faces': '1234567'}
         actualResult = create._create(parms)
         self.assertDictEqual(expectedResult, actualResult)
 
-    def test200_020_SadPathTooFewFaces(self):
+    def test200_920_SadPathTooFewFaces(self):
         expectedResult = {'status': 'error: Incorrect length of faces - must be exactly 6 faces'}
         parms = {'op': 'create',
                  'faces': '12345'}
         actualResult = create._create(parms)
         self.assertDictEqual(expectedResult, actualResult)
 
-    def test100_040_SadPathDuplicateFaceValue(self):
-        expectedResult = {'status': 'error: Incorrect length of faces - must be exactly 6 faces'}
+    def test100_930_SadPathDuplicateFaceValue(self):
+        expectedResult = {'status': 'error: No duplicate faces are allowed'}
         parms = {'op': 'create',
                  'faces': '112345'}
         actualResult = create._create(parms)
