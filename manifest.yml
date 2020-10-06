@@ -1,6 +1,6 @@
 applications:
   - path: .
-    name: umphrda-rcube
+    name: jdg0058-rcube
     environment_json: {}
     memory: 128M
     instances: 1
