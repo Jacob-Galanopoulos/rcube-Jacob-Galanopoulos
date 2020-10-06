@@ -16,10 +16,7 @@ def _create(parms):
                 error = {'status': 'error: No duplicate faces are allowed'}
                 return error
             else:
-                i = 0
-                while i < 9:
-                    output = output.join(char)
-                    i += 1
+                output = output + (9 * char)
         
         integrity = hashlib.sha256(output).hexdigest().upper()
         correctReturn = {'cube': output, 'integrity': integrity, 'status': 'ok'}
