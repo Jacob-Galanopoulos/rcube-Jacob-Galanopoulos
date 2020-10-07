@@ -16,7 +16,7 @@ class Test(unittest.TestCase):
         actualResult = info._info(parms)
         self.assertDictEqual(expectedResult, actualResult)
 
-    def test100_010_InfoWithExtraParameters(self):
+    def test100_020_InfoWithExtraParameters(self):
         expectedResult = {'user': 'jdg0058'}
         parms = {'op': 'info',
                  'f': '123456'}
