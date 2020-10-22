@@ -58,7 +58,7 @@ class Test(unittest.TestCase):
         self.assertDictEqual(expectedResult, actualResult)
         
     def test200_925_Not6UniqueCubeFaces(self):
-        expectedResult = {'status': 'error: cube does not have 6 distinct faces'}
+        expectedResult = {'status': 'error: cube does not exactly have distinct center elements'}
         parms = {'cube': '111111111222222222333333333444444444555555555111111111',
                  'integrity': '93C6A03A7B2F9F5D319128523FA96AB3C748C67EAA6FDD4DAC8311F4D0393921'}
         actualResult = check._check(parms)
