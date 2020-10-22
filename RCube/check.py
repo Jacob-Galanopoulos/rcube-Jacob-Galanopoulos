@@ -17,7 +17,7 @@ def _check(parms):
             
     if(not(len(cubeColors) == 6)): return {'status': 'error: cube does not have 6 distinct faces'}
     for color in cubeColors:
-        if(not(parms['cube'].count(color) == 8)): return {'status': 'error: cube does not exactly have 9 of each element'}
+        if(not(parms['cube'].count(color) == 9)): return {'status': 'error: cube does not exactly have 9 of each element'}
     
     #edge = _validateEdges(cubeFaces, cubeCenterColors)
     #corner = _validateCorners(cubeFaces, cubeCenterColors)
