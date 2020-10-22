@@ -10,14 +10,14 @@ def _check(parms):
     cubeColors = []
     
     for face in cubeFaces:
-        if(face[4] in cubeCenterColors): {'status': 'error: cube does not exactly have distinct center elements'}
+        if(face[4] in cubeCenterColors): return {'status': 'error: cube does not exactly have distinct center elements'}
         else: cubeCenterColors.append(face[4])
         for color in face:
             if(not(color in cubeColors)): cubeColors.append(color)
             
-    if(not(len(cubeColors) == 6)): {'status': 'error: cube does not have 6 distinct faces'}
+    if(not(len(cubeColors) == 6)): return {'status': 'error: cube does not have 6 distinct faces'}
     for color in cubeColors:
-        if(not(parms['cube'].count(color) == 8)): {'status': 'error: cube does not exactly have 9 of each element'}
+        if(not(parms['cube'].count(color) == 8)): return {'status': 'error: cube does not exactly have 9 of each element'}
     
     #edge = _validateEdges(cubeFaces, cubeCenterColors)
     #corner = _validateCorners(cubeFaces, cubeCenterColors)
