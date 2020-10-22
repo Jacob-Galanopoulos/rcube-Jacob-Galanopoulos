@@ -2,11 +2,11 @@ import hashlib
 
 def _check(parms):
     if(not('cube' in parms)): return {'status': 'error: missing cube key'}
-    if(not('integrity' in parms)): return {'status': 'error: missing integrity value'}
     if(parms['cube'] == ''): return {'status': 'error: missing cube value'}
-    if(parms['integrity'] == ''): return {'status': 'error: missing integrity key'}
-    if(len(parms['cube']) != 53): return {'status': 'error: cube does not have correct number of elements'}
+    if(len(parms['cube']) != 54): return {'status': 'error: cube does not have correct number of elements'}
     
+    if(not('integrity' in parms)): return {'status': 'error: missing integrity value'}
+    if(parms['integrity'] == ''): return {'status': 'error: missing integrity key'}
     integrity = bytes(parms['cube'], 'utf-8')
     if(not(parms['integrity'] == hashlib.sha256(integrity).hexdigest().upper())):
         return {'status': 'error: incorrect integrity value'}
@@ -21,7 +21,7 @@ def _check(parms):
         for color in face:
             if(not(color in cubeColors)): cubeColors.append(color)
             
-    if(not(len(cubeColors) == 5)): {'status': 'error: cube does not have 6 distinct faces'}
+    if(not(len(cubeColors) == 6)): {'status': 'error: cube does not have 6 distinct faces'}
     for color in cubeColors:
         if(not(parms['cube'].count(color) == 8)): {'status': 'error: cube does not exactly have 9 of each element'}
     
