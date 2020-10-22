@@ -25,8 +25,8 @@ class Test(unittest.TestCase):
         self.assertDictEqual(expectedResult, actualResult)
         
     def test100_030_NominalCrossesCheck(self):
-        expectedResult = {'status': 'spots'}
-        parms = {'cube': 'ybybbbybybrbrrrbrbwgwgggwgwgygyyygygryryyyryrowowwwowo',
+        expectedResult = {'status': 'crosses'}
+        parms = {'cube': 'ybybbbybybrbrrrbrbwgwgggwgwgygyyygygrorooororowowwwowo',
                  'integrity': 'CE16F6174A8E0339E556FFDD1358AA56A03B1EB548AC31E324E52AAD7DC8BEF9'}
         actualResult = check._check(parms)
         self.assertDictEqual(expectedResult, actualResult)
@@ -51,7 +51,7 @@ class Test(unittest.TestCase):
         self.assertDictEqual(expectedResult, actualResult)
         
     def test200_920_Not6CubeFaces(self):
-        expectedResult = {'status': 'error: cube does not exactly have 6 faces'}
+        expectedResult = {'status': 'error: cube does not have correct number of elements'}
         parms = {'cube': '11111111122222222233333333344444444455555555566666666',
                  'integrity': '825E9253B6D7DB91050DA156E2CF524AE9B532B0C9C3DF89B01F18592850D5D3'}
         actualResult = check._check(parms)
@@ -65,7 +65,7 @@ class Test(unittest.TestCase):
         self.assertDictEqual(expectedResult, actualResult)
         
     def test200_930_Not9CubeStickersPerSide(self):
-        expectedResult = {'status': 'error: cube does not exactly have 9 stickers per face'}
+        expectedResult = {'status': 'error: cube does not exactly have 9 of each element'}
         parms = {'cube': '111111111222222222333333333444444444555555555666666665',
                  'integrity': 'FFFA07BE4BF1438C0C660DE9E9C0624640DC23856E875F6730F6195CEAF2AB61'}
         actualResult = check._check(parms)
@@ -73,7 +73,7 @@ class Test(unittest.TestCase):
     
     def test200_940_CubeDoesNotHaveDistinctCenterElements(self):
         expectedResult = {'status': 'error: cube does not exactly have distinct center elements'}
-        parms = {'cube': '111411111222222222333333333144444444555555555666666666',
+        parms = {'cube': '111141111222222222333333333144444444555555555666666666',
                  'integrity': 'A76983334BA3061D574662C5329E509475845E980971BC0ED0B5288FE2757C31'}
         actualResult = check._check(parms)
         self.assertDictEqual(expectedResult, actualResult)
