@@ -63,8 +63,22 @@ def _status(cubeFaces = [], cubeCenterColors = []):
             
 
 def _validateEdges(cubeFaces = [], cubeCenterColors = []):
-    result = {'check': 'check stub'}
-    return result
+    if(len(cubeFaces) == 0): return {'error': 'missing input'}
+    if(len(cubeCenterColors) == 0): return {'error': 'missing input'}
+    
+    isValidEdgeCube = True
+    edgeMap =[cubeFaces[0][1] + cubeFaces[4][7], cubeFaces[0][3] + cubeFaces[3][5],
+              cubeFaces[0][5] + cubeFaces[1][3], cubeFaces[0][7] + cubeFaces[5][1],
+              cubeFaces[2][1] + cubeFaces[4][1], cubeFaces[2][3] + cubeFaces[1][5],
+              cubeFaces[2][5] + cubeFaces[3][3], cubeFaces[2][7] + cubeFaces[5][7]]
+    
+    for edge in edgeMap:
+        if ((cubeCenterColors[0] in edge and cubeCenterColors[2] in edge) or
+            (cubeCenterColors[1] in edge and cubeCenterColors[3] in edge) or
+            (cubeCenterColors[4] in edge and cubeCenterColors[5] in edge)):
+            isValidEdgeCube = False
+            
+    return {'result': str(isValidEdgeCube)}
 
 def _validateCorners(cubeFaces = [], cubeCenterColors = []):
     if(len(cubeFaces) == 0): return {'error': 'missing input'}
