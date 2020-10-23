@@ -27,7 +27,7 @@ class Test(unittest.TestCase):
     def test100_030_NominalCrossesCheck(self):
         expectedResult = {'status': 'crosses'}
         parms = {'cube': 'ybybbbybybrbrrrbrbwgwgggwgwgygyyygygrorooororowowwwowo',
-                 'integrity': 'CE16F6174A8E0339E556FFDD1358AA56A03B1EB548AC31E324E52AAD7DC8BEF9'}
+                 'integrity': '3A2CA2368EDAB67D1EAB30A5DCA67757FC389AC2924E3EDAB522BAABF8403202'}
         actualResult = check._check(parms)
         self.assertDictEqual(expectedResult, actualResult)
     
