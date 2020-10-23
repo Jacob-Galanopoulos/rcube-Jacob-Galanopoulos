@@ -1,4 +1,6 @@
 import hashlib
+from builtins import True, False
+from _ast import Or
 
 def _check(parms):
     if(not('cube' in parms)): return {'status': 'error: missing cube key'}
@@ -33,8 +35,34 @@ def _check(parms):
     #return _status(cubeFaces, cubeCenterColors)
 
 def _status(cubeFaces = [], cubeCenterColors = []):
-    result = {'check': 'check stub'}
-    return result
+    if(len(cubeFaces) == 0): return {'error': 'missing cube faces'}
+    if(len(cubeCenterColors) == 0): return {'error': 'missing cube center colors'}
+    
+    isFull = True
+    isCross = True
+    isSpot = True
+    currentFace = 0
+    for face in cubeFaces:
+        spot = face[:4] + face[4+1:]
+        if(not(face[0]*9 == 0)): isFull = False
+        if(not(cubeCenterColors[currentFace] == face(1)) or 
+            not(cubeCenterColors[currentFace] == face(3)) or 
+            not(cubeCenterColors[currentFace] == face(5)) or 
+            not(cubeCenterColors[currentFace] == face(7)) or):
+            isCross = False
+        if(not(spot == face[0]*8)):
+            spot = False
+        currentFace += 1
+            
+    if isFull:
+        return {'status': 'full'}
+    elif isCross:
+        return {'status': 'spots'}
+    elif isSpot:
+        return {'status': 'crosses'}
+    else:
+        return {'status': 'unknown'}
+            
 
 def _validateEdges(cubeFaces = [], cubeCenterColors = []):
     result = {'check': 'check stub'}
