@@ -32,14 +32,14 @@ def _check(parms):
     
     #return _status(cubeFaces, cubeCenterColors)
 
-def _status(parms):
+def _status(cubeFaces = [], cubeCenterColors = []):
     result = {'check': 'check stub'}
     return result
 
-def _validateEdges(parms):
+def _validateEdges(cubeFaces = [], cubeCenterColors = []):
     result = {'check': 'check stub'}
     return result
 
-def _validateCorners(parms):
+def _validateCorners(cubeFaces = [], cubeCenterColors = []):
     result = {'check': 'check stub'}
     return result
