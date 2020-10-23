@@ -24,10 +24,10 @@ def _check(parms):
     for color in cubeColors:
         if(not(parms['cube'].count(color) == 9)): return {'status': 'error: cube does not exactly have 9 of each element'}
     
-    #edge = _validateEdges(cubeFaces, cubeCenterColors)
+    edge = _validateEdges(cubeFaces, cubeCenterColors)
     corner = _validateCorners(cubeFaces, cubeCenterColors)
     
-    #if(not(edge['result'])): {'status': 'error: cube has an edge that can not exist'}
+    if(not(edge['result'])): {'status': 'error: cube has an edge that can not exist'}
     if(not(corner['result'])): {'status': 'error: cube has a corner that can not exist'}
     
     return _status(cubeFaces, cubeCenterColors)
