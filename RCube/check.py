@@ -42,7 +42,7 @@ def _status(cubeFaces = [], cubeCenterColors = []):
     currentFace = 0
     for face in cubeFaces:
         spot = face[:4] + face[4+1:]
-        if(not(face[0]*9 == 0)): isFull = False
+        if(not(face[0]*9 == face)): isFull = False
         if(not(cubeCenterColors[currentFace] == face[1]) or 
             not(cubeCenterColors[currentFace] == face[3]) or 
             not(cubeCenterColors[currentFace] == face[5]) or 
