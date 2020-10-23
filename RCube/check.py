@@ -1,6 +1,4 @@
 import hashlib
-from builtins import True, False
-from _ast import Or
 
 def _check(parms):
     if(not('cube' in parms)): return {'status': 'error: missing cube key'}
