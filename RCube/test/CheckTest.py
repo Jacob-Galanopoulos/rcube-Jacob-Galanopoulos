@@ -141,7 +141,7 @@ class Test(unittest.TestCase):
         
     def test120_020_NominalCornerInvalidCorners(self):
         expectedResult = {'result': 'False'}
-        cubeFaces = ['114111111', '522222222', '333333333', '444444444', '555555551', '666666666']
+        cubeFaces = ['113111111', '522222222', '333333333', '444444444', '555555551', '666666666']
         cubeCenterColors = ['1', '2', '3', '4', '5', '6']
         actualResult = check._validateCorners(cubeFaces, cubeCenterColors)
         self.assertDictEqual(expectedResult, actualResult)
