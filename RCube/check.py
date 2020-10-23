@@ -70,7 +70,9 @@ def _validateEdges(cubeFaces = [], cubeCenterColors = []):
     edgeMap =[cubeFaces[0][1] + cubeFaces[4][7], cubeFaces[0][3] + cubeFaces[3][5],
               cubeFaces[0][5] + cubeFaces[1][3], cubeFaces[0][7] + cubeFaces[5][1],
               cubeFaces[2][1] + cubeFaces[4][1], cubeFaces[2][3] + cubeFaces[1][5],
-              cubeFaces[2][5] + cubeFaces[3][3], cubeFaces[2][7] + cubeFaces[5][7]]
+              cubeFaces[2][5] + cubeFaces[3][3], cubeFaces[2][7] + cubeFaces[5][7],
+              cubeFaces[1][1] + cubeFaces[4][3], cubeFaces[1][7] + cubeFaces[5][5],
+              cubeFaces[3][1] + cubeFaces[4][3], cubeFaces[3][7] + cubeFaces[5][3]]
     
     for edge in edgeMap:
         if ((cubeCenterColors[0] in edge and cubeCenterColors[2] in edge) or
