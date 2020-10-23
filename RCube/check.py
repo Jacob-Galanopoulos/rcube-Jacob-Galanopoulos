@@ -67,5 +67,24 @@ def _validateEdges(cubeFaces = [], cubeCenterColors = []):
     return result
 
 def _validateCorners(cubeFaces = [], cubeCenterColors = []):
-    result = {'check': 'check stub'}
-    return result
+    if(len(cubeFaces) == 0): return {'error': 'missing input'}
+    if(len(cubeCenterColors) == 0): return {'error': 'missing input'}
+    
+    isValidCornerCube = True
+    cornerMap = [cubeFaces[0][0] + cubeFaces[3][2] + cubeFaces[4][6], 
+                  cubeFaces[0][2] + cubeFaces[1][0] + cubeFaces[4][8], 
+                  cubeFaces[0][6] + cubeFaces[3][8] + cubeFaces[5][0], 
+                  cubeFaces[0][8] + cubeFaces[4][6] + cubeFaces[5][4], 
+                  cubeFaces[2][0] + cubeFaces[2][3] + cubeFaces[4][2], 
+                  cubeFaces[2][2] + cubeFaces[4][0] + cubeFaces[3][2], 
+                  cubeFaces[2][6] + cubeFaces[1][8] + cubeFaces[5][2], 
+                  cubeFaces[2][8] + cubeFaces[3][6] + cubeFaces[5][8]]
+    
+    for corner in cornerMap:
+        if ((cubeCenterColors[0] in corner and cubeCenterColors[2] in corner) or
+            (cubeCenterColors[1] in corner and cubeCenterColors[3] in corner) or
+            (cubeCenterColors[4] in corner and cubeCenterColors[5] in corner)):
+            isValidCornerCube = False
+            
+    return {'result': str(isValidCornerCube)}
+    
