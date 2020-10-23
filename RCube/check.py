@@ -91,7 +91,7 @@ def _validateCorners(cubeFaces = [], cubeCenterColors = []):
                   cubeFaces[0][2] + cubeFaces[1][0] + cubeFaces[4][8], 
                   cubeFaces[0][6] + cubeFaces[3][8] + cubeFaces[5][0], 
                   cubeFaces[0][8] + cubeFaces[4][6] + cubeFaces[5][4], 
-                  cubeFaces[2][0] + cubeFaces[2][3] + cubeFaces[4][2], 
+                  cubeFaces[2][0] + cubeFaces[1][3] + cubeFaces[4][2], 
                   cubeFaces[2][2] + cubeFaces[4][0] + cubeFaces[3][2], 
                   cubeFaces[2][6] + cubeFaces[1][8] + cubeFaces[5][2], 
                   cubeFaces[2][8] + cubeFaces[3][6] + cubeFaces[5][8]]
