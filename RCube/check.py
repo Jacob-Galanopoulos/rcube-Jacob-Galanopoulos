@@ -28,8 +28,7 @@ def _check(parms):
     if(not('integrity' in parms)): return {'status': 'error: missing integrity value'}
     if(parms['integrity'] == ''): return {'status': 'error: missing integrity key'}
     integrity = bytes(parms['cube'], 'utf-8')
-    if(not(parms['integrity'] == hashlib.sha256(integrity).hexdigest().upper())):
-        return {'status': 'error: incorrect integrity value'}
+    if(not(parms['integrity'] == hashlib.sha256(integrity).hexdigest().upper())): return {'status': 'error: incorrect integrity value'}
     
     #return _status(cubeFaces, cubeCenterColors)
 

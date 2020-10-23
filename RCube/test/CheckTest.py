@@ -114,52 +114,92 @@ class Test(unittest.TestCase):
         
     def test110_010_NominalEdgeValidEdges(self):
         expectedResult = {'result': 'true'}
-        parms = {'cube': 'bbbooooooooogggggggggrrrrrrrrrbbbbbbwwwwwwwwwyyyyyyyyy',
-                 'integrity': 'F60549B12BC9C64FD37F15DD1CE16E16712AFC0181A84EA3898F070EBB29C60E'}
-        actualResult = check._validateEdges(parms)
+        cubeFaces = ['rrrrbrrrr', 'yyyyryyyy', 'oooogoooo', 'wwwwowwww', 'bbbbybbbb', 'ggggwgggg']
+        cubeCenterColors = ['b', 'r', 'g', 'o', 'y', 'w']
+        actualResult = check._validateEdges(cubeFaces, cubeCenterColors)
         self.assertDictEqual(expectedResult, actualResult)
         
     def test110_020_NominalEdgeInvalidEdges(self):
         expectedResult = {'result': 'false'}
-        parms = {'cube': '111112111222122222333333333444444444555555555666666666',
-                 'integrity': '61E17B21DC3147541FD168E65EDFACD2E5B302646450329B5848D6343D55129D'}
-        actualResult = check._validateEdges(parms)
+        cubeFaces = ['111112111', '222122222', '333333333', '444444444', '555555555', '666666666']
+        cubeCenterColors = ['1', '2', '3', '4', '5', '6']
+        actualResult = check._validateEdges(cubeFaces, cubeCenterColors)
         self.assertDictEqual(expectedResult, actualResult)
     
-    def test210_910_EdgeMissingCubeValue(self):
-        expectedResult = {'result': 'error: missing cube value'}
-        parms = {'cube': ''}
-        actualResult = check._validateEdges(parms)
+    def test210_910_EdgeMissingCubeFacesValue(self):
+        expectedResult = {'error': 'missing cube faces'}
+        cubeCenterColors = ['1', '2', '3', '4', '5', '6']
+        actualResult = check._validateEdges(cubeCenterColors)
         self.assertDictEqual(expectedResult, actualResult)
         
-    def test210_920_EdgeMissingCubeKey(self):
-        expectedResult = {'error': 'error: missing cube key'}
-        parms = {}
-        actualResult = check._validateEdges(parms)
+    def test210_920_EdgeMissingCubeCenterColors(self):
+        expectedResult = {'error': 'missing cube center colors'}
+        cubeFaces = ['111112111', '222122222', '333333333', '444444444', '555555555', '666666666']
+        actualResult = check._validateEdges(cubeFaces)
         self.assertDictEqual(expectedResult, actualResult)
         
     def test120_010_NominalCornerValidCorners(self):
         expectedResult = {'result': 'true'}
-        parms = {'cube': 'bbbooooooooogggggggggrrrrrrrrrbbbbbbwwwwwwwwwyyyyyyyyy',
-                 'integrity': 'F60549B12BC9C64FD37F15DD1CE16E16712AFC0181A84EA3898F070EBB29C60E'}
-        actualResult = check._validateEdges(parms)
+        cubeFaces = ['rrrrbrrrr', 'yyyyryyyy', 'oooogoooo', 'wwwwowwww', 'bbbbybbbb', 'ggggwgggg']
+        cubeCenterColors = ['b', 'r', 'g', 'o', 'y', 'w']
+        actualResult = check._validateCorners(cubeFaces, cubeCenterColors)
         self.assertDictEqual(expectedResult, actualResult)
         
     def test120_020_NominalCornerInvalidCorners(self):
         expectedResult = {'result': 'false'}
-        parms = {'cube': '112111111522222222333333333444444444555555551666666666',
-                 'integrity': '5572DDB8ED3FF835CFA36C776D8EC29CFD55F134046CFE0169AABD3AD4C4DE9B'}
-        actualResult = check._validateEdges(parms)
+        cubeFaces = ['112111111', '522222222', '333333333', '444444444', '555555551', '666666666']
+        cubeCenterColors = ['1', '2', '3', '4', '5', '6']
+        actualResult = check._validateCorners(cubeFaces, cubeCenterColors)
         self.assertDictEqual(expectedResult, actualResult)
     
-    def test220_910_CornerMissingCubeValue(self):
-        expectedResult = {'result': 'error: missing cube value'}
-        parms = {'cube': ''}
-        actualResult = check._validateEdges(parms)
+    def test220_910_CornerMissingFacesValue(self):
+        expectedResult = {'error': 'missing cube faces'}
+        cubeCenterColors = ['1', '2', '3', '4', '5', '6']
+        actualResult = check._validateCorners(cubeCenterColors)
         self.assertDictEqual(expectedResult, actualResult)
         
-    def test220_920_CornerMissingCubeKey(self):
-        expectedResult = {'error': 'error: missing cube key'}
-        parms = {}
-        actualResult = check._validateEdges(parms)
+    def test220_920_CornerMissingCubeCenterColors(self):
+        expectedResult = {'error': 'missing cube center colors'}
+        cubeFaces = ['111112111', '222122222', '333333333', '444444444', '555555555', '666666666']
+        actualResult = check._validateCorners(cubeFaces)
+        self.assertDictEqual(expectedResult, actualResult)
+        
+    def test130_010_NominalStatusChecked(self):
+        expectedResult = {'result': 'crosses'}
+        cubeFaces = ['rbrbbbrbr', 'yryrrryry', 'ogogggogo', 'wowooowow', 'bybyyybyb', 'gwgwwwgwg']
+        cubeCenterColors = ['b', 'r', 'g', 'o', 'y', 'w']
+        actualResult = check._status(cubeFaces, cubeCenterColors)
+        self.assertDictEqual(expectedResult, actualResult)
+        
+    def test130_020_NominalStatusSpotted(self):
+        expectedResult = {'result': 'spots'}
+        cubeFaces = ['rrrrbrrrr', 'yyyyryyyy', 'oooogoooo', 'wwwwowwww', 'bbbbybbbb', 'ggggwgggg']
+        cubeCenterColors = ['b', 'r', 'g', 'o', 'y', 'w']
+        actualResult = check._status(cubeFaces, cubeCenterColors)
+        self.assertDictEqual(expectedResult, actualResult)
+        
+    def test130_030_NominalStatusFull(self):
+        expectedResult = {'result': 'full'}
+        cubeFaces = ['rrrrrrrrr', 'yyyyyyyyy', 'ooooooooo', 'wwwwwwwww', 'bbbbbbbbb', 'ggggggggg']
+        cubeCenterColors = ['r', 'y', 'o', 'w', 'y', 'g']
+        actualResult = check._status(cubeFaces, cubeCenterColors)
+        self.assertDictEqual(expectedResult, actualResult)
+        
+    def test130_030_NominalStatusUnknown(self):
+        expectedResult = {'result': 'unknown'}
+        cubeFaces = ['bbboooooo', 'ooogggggg', 'gggrrrrrr', 'rrrbbbbbb', 'wwwwwwwww', 'yyyyyyyyy']
+        cubeCenterColors = ['o', 'g', 'r', 'b', 'w', 'y']
+        actualResult = check._status(cubeFaces, cubeCenterColors)
+        self.assertDictEqual(expectedResult, actualResult)
+    
+    def test220_910_StatusMissingFacesValue(self):
+        expectedResult = {'error': 'missing cube faces'}
+        cubeCenterColors = ['1', '2', '3', '4', '5', '6']
+        actualResult = check._status(cubeCenterColors)
+        self.assertDictEqual(expectedResult, actualResult)
+        
+    def test220_920_StatusMissingCubeCenterColors(self):
+        expectedResult = {'error': 'missing cube center colors'}
+        cubeFaces = ['111112111', '222122222', '333333333', '444444444', '555555555', '666666666']
+        actualResult = check._status(cubeFaces)
         self.assertDictEqual(expectedResult, actualResult)
