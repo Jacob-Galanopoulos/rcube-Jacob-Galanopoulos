@@ -27,8 +27,8 @@ def _check(parms):
     edge = _validateEdges(cubeFaces, cubeCenterColors)
     corner = _validateCorners(cubeFaces, cubeCenterColors)
     
-    if(edge['result'] == 'False'): {'status': 'error: cube has an edge that can not exist'}
-    if(corner['result'] == 'False'): {'status': 'error: cube has a corner that can not exist'}
+    if(edge['result'] == 'False'): return {'status': 'error: cube has an edge that can not exist'}
+    if(corner['result'] == 'False'): return {'status': 'error: cube has a corner that can not exist'}
     
     return _status(cubeFaces, cubeCenterColors)
 
