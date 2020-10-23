@@ -165,28 +165,28 @@ class Test(unittest.TestCase):
         self.assertDictEqual(expectedResult, actualResult)
         
     def test130_010_NominalStatusChecked(self):
-        expectedResult = {'result': 'crosses'}
+        expectedResult = {'status': 'crosses'}
         cubeFaces = ['rbrbbbrbr', 'yryrrryry', 'ogogggogo', 'wowooowow', 'bybyyybyb', 'gwgwwwgwg']
         cubeCenterColors = ['b', 'r', 'g', 'o', 'y', 'w']
         actualResult = check._status(cubeFaces, cubeCenterColors)
         self.assertDictEqual(expectedResult, actualResult)
         
     def test130_020_NominalStatusSpotted(self):
-        expectedResult = {'result': 'spots'}
+        expectedResult = {'status': 'spots'}
         cubeFaces = ['rrrrbrrrr', 'yyyyryyyy', 'oooogoooo', 'wwwwowwww', 'bbbbybbbb', 'ggggwgggg']
         cubeCenterColors = ['b', 'r', 'g', 'o', 'y', 'w']
         actualResult = check._status(cubeFaces, cubeCenterColors)
         self.assertDictEqual(expectedResult, actualResult)
         
     def test130_030_NominalStatusFull(self):
-        expectedResult = {'result': 'full'}
+        expectedResult = {'status': 'full'}
         cubeFaces = ['rrrrrrrrr', 'yyyyyyyyy', 'ooooooooo', 'wwwwwwwww', 'bbbbbbbbb', 'ggggggggg']
         cubeCenterColors = ['r', 'y', 'o', 'w', 'y', 'g']
         actualResult = check._status(cubeFaces, cubeCenterColors)
         self.assertDictEqual(expectedResult, actualResult)
         
     def test130_030_NominalStatusUnknown(self):
-        expectedResult = {'result': 'unknown'}
+        expectedResult = {'status': 'unknown'}
         cubeFaces = ['bbboooooo', 'ooogggggg', 'gggrrrrrr', 'rrrbbbbbb', 'wwwwwwwww', 'yyyyyyyyy']
         cubeCenterColors = ['o', 'g', 'r', 'b', 'w', 'y']
         actualResult = check._status(cubeFaces, cubeCenterColors)
