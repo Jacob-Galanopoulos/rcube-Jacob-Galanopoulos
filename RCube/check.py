@@ -33,8 +33,8 @@ def _check(parms):
     return _status(cubeFaces, cubeCenterColors)
 
 def _status(cubeFaces = [], cubeCenterColors = []):
-    if(len(cubeFaces) == 0): return {'error': 'missing missing input'}
-    if(len(cubeCenterColors) == 0): return {'error': 'missing missing input'}
+    if(len(cubeFaces) == 0): return {'error': 'missing input'}
+    if(len(cubeCenterColors) == 0): return {'error': 'missing input'}
     
     isFull = True
     isCross = True
