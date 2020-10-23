@@ -127,15 +127,9 @@ class Test(unittest.TestCase):
         self.assertDictEqual(expectedResult, actualResult)
     
     def test210_910_EdgeMissingCubeFacesValue(self):
-        expectedResult = {'error': 'missing cube faces'}
+        expectedResult = {'error': 'missing input'}
         cubeCenterColors = ['1', '2', '3', '4', '5', '6']
         actualResult = check._validateEdges(cubeCenterColors)
-        self.assertDictEqual(expectedResult, actualResult)
-        
-    def test210_920_EdgeMissingCubeCenterColors(self):
-        expectedResult = {'error': 'missing cube center colors'}
-        cubeFaces = ['111112111', '222122222', '333333333', '444444444', '555555555', '666666666']
-        actualResult = check._validateEdges(cubeFaces)
         self.assertDictEqual(expectedResult, actualResult)
         
     def test120_010_NominalCornerValidCorners(self):
@@ -153,15 +147,9 @@ class Test(unittest.TestCase):
         self.assertDictEqual(expectedResult, actualResult)
     
     def test220_910_CornerMissingFacesValue(self):
-        expectedResult = {'error': 'missing cube faces'}
+        expectedResult = {'error': 'missing input'}
         cubeCenterColors = ['1', '2', '3', '4', '5', '6']
         actualResult = check._validateCorners(cubeCenterColors)
-        self.assertDictEqual(expectedResult, actualResult)
-        
-    def test220_920_CornerMissingCubeCenterColors(self):
-        expectedResult = {'error': 'missing cube center colors'}
-        cubeFaces = ['111112111', '222122222', '333333333', '444444444', '555555555', '666666666']
-        actualResult = check._validateCorners(cubeFaces)
         self.assertDictEqual(expectedResult, actualResult)
         
     def test130_010_NominalStatusChecked(self):
@@ -193,13 +181,7 @@ class Test(unittest.TestCase):
         self.assertDictEqual(expectedResult, actualResult)
     
     def test220_910_StatusMissingFacesValue(self):
-        expectedResult = {'error': 'missing cube faces'}
+        expectedResult = {'error': 'missing input'}
         cubeCenterColors = ['1', '2', '3', '4', '5', '6']
         actualResult = check._status(cubeCenterColors)
-        self.assertDictEqual(expectedResult, actualResult)
-        
-    def test220_920_StatusMissingCubeCenterColors(self):
-        expectedResult = {'error': 'missing cube center colors'}
-        cubeFaces = ['111112111', '222122222', '333333333', '444444444', '555555555', '666666666']
-        actualResult = check._status(cubeFaces)
         self.assertDictEqual(expectedResult, actualResult)
