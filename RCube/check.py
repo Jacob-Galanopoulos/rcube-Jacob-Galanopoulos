@@ -49,7 +49,7 @@ def _status(cubeFaces = [], cubeCenterColors = []):
             not(cubeCenterColors[currentFace] == face[7])):
             isCross = False
         if(not(spot == face[0]*8)):
-            spot = False
+            isSpot = False
         currentFace += 1
             
     if isFull:
