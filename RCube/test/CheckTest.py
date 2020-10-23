@@ -99,14 +99,14 @@ class Test(unittest.TestCase):
         actualResult = check._check(parms)
         self.assertDictEqual(expectedResult, actualResult)
         
-    def test200_960_CubeHasMissingIntegrityValue(self):
+    def test200_965_CubeHasMissingIntegrityValue(self):
         expectedResult = {'status': 'error: missing integrity value'}
         parms = {'cube': '11111111122222222233333333344444444455555555566666666',
                  'integrity': ''}
         actualResult = check._check(parms)
         self.assertDictEqual(expectedResult, actualResult)
         
-    def test200_960_CubeHasMissingIntegrityKey(self):
+    def test200_970_CubeHasMissingIntegrityKey(self):
         expectedResult = {'status': 'error: missing integrity key'}
         parms = {'cube': '11111111122222222233333333344444444455555555566666666'}
         actualResult = check._check(parms)
