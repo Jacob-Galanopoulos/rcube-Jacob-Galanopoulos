@@ -3,13 +3,13 @@ import hashlib
 def _check(parms):
     if(not('cube' in parms)): return {'status': 'error: missing cube key'}
     if(parms['cube'] == ''): return {'status': 'error: missing cube value'}
-    if(len(parms['cube']) != 54): return {'status': 'error: cube does not have correct number of elements'}
     
     if(not('integrity' in parms)): return {'status': 'error: missing integrity value'}
     if(parms['integrity'] == ''): return {'status': 'error: missing integrity key'}
     integrity = bytes(parms['cube'], 'utf-8')
     if(not(parms['integrity'] == hashlib.sha256(integrity).hexdigest().upper())): return {'status': 'error: incorrect integrity value'}
     
+    if(len(parms['cube']) != 54): return {'status': 'error: cube does not have correct number of elements'}
     cubeFaces = [parms['cube'][i:i+9] for i in range(0, len(parms['cube']), 9)]
     cubeCenterColors = []
     cubeColors = []
