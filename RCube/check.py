@@ -4,8 +4,8 @@ def _check(parms):
     if(not('cube' in parms)): return {'status': 'error: missing cube key'}
     if(parms['cube'] == ''): return {'status': 'error: missing cube value'}
     
-    if(not('integrity' in parms)): return {'status': 'error: missing integrity value'}
-    if(parms['integrity'] == ''): return {'status': 'error: missing integrity key'}
+    if(not('integrity' in parms)): return {'status': 'error: missing integrity key'}
+    if(parms['integrity'] == ''): return {'status': 'error: missing integrity value'}
     integrity = bytes(parms['cube'], 'utf-8')
     if(not(parms['integrity'] == hashlib.sha256(integrity).hexdigest().upper())): return {'status': 'error: incorrect integrity value'}
     
