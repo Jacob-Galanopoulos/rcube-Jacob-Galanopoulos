@@ -30,7 +30,7 @@ def _check(parms):
     integrity = bytes(parms['cube'], 'utf-8')
     if(not(parms['integrity'] == hashlib.sha256(integrity).hexdigest().upper())): return {'status': 'error: incorrect integrity value'}
     
-    #return _status(cubeFaces, cubeCenterColors)
+    return _status(cubeFaces, cubeCenterColors)
 
 def _status(cubeFaces = [], cubeCenterColors = []):
     if(len(cubeFaces) == 0): return {'error': 'missing cube faces'}
