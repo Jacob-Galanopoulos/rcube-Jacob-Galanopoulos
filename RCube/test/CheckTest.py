@@ -87,8 +87,8 @@ class Test(unittest.TestCase):
         
     def test200_955_CubeHasImpossibleEdge(self):
         expectedResult = {'status': 'error: cube has an edge that can not exist'}
-        parms = {'cube': '111112111222122222333333333444444444555555555666666666',
-                 'integrity': '61E17B21DC3147541FD168E65EDFACD2E5B302646450329B5848D6343D55129D'}
+        parms = {'cube': 'gwwrgyobwogwwwwboybrbgbrgrwroowybrgbyyoyoyobgyyrorbggr',
+                 'integrity': '3C0BA8BDCEDE1484616367FF864B66B643B8AF08566F650C4A43148CEAC8D289'}
         actualResult = check._check(parms)
         self.assertDictEqual(expectedResult, actualResult)
         
@@ -121,7 +121,7 @@ class Test(unittest.TestCase):
         
     def test110_020_NominalEdgeInvalidEdges(self):
         expectedResult = {'result': 'False'}
-        cubeFaces = ['111112111', '222122222', '333333333', '444444444', '555555555', '666666666']
+        cubeFaces = ['gwwrgyobw', 'ogwwwwboy', 'brbgbrgrw', 'roowybrgb', 'yyoyoyobg', 'yyrorbggr']
         cubeCenterColors = ['1', '2', '3', '4', '5', '6']
         actualResult = check._validateEdges(cubeFaces, cubeCenterColors)
         self.assertDictEqual(expectedResult, actualResult)
