@@ -113,14 +113,14 @@ class Test(unittest.TestCase):
         self.assertDictEqual(expectedResult, actualResult)
         
     def test110_010_NominalEdgeValidEdges(self):
-        expectedResult = {'result': 'true'}
+        expectedResult = {'result': 'True'}
         cubeFaces = ['rrrrbrrrr', 'yyyyryyyy', 'oooogoooo', 'wwwwowwww', 'bbbbybbbb', 'ggggwgggg']
         cubeCenterColors = ['b', 'r', 'g', 'o', 'y', 'w']
         actualResult = check._validateEdges(cubeFaces, cubeCenterColors)
         self.assertDictEqual(expectedResult, actualResult)
         
     def test110_020_NominalEdgeInvalidEdges(self):
-        expectedResult = {'result': 'false'}
+        expectedResult = {'result': 'False'}
         cubeFaces = ['111112111', '222122222', '333333333', '444444444', '555555555', '666666666']
         cubeCenterColors = ['1', '2', '3', '4', '5', '6']
         actualResult = check._validateEdges(cubeFaces, cubeCenterColors)
