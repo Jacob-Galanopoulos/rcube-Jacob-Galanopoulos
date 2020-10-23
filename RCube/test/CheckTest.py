@@ -74,7 +74,7 @@ class Test(unittest.TestCase):
     def test200_940_CubeDoesNotHaveDistinctCenterElements(self):
         expectedResult = {'status': 'error: cube does not exactly have distinct center elements'}
         parms = {'cube': '111141111222222222333333333144444444555555555666666666',
-                 'integrity': 'A76983334BA3061D574662C5329E509475845E980971BC0ED0B5288FE2757C31'}
+                 'integrity': '0628732992F58A84A7F291067AB6CC9DC9B1AD8428DC93EE5126B0CD88108B0E'}
         actualResult = check._check(parms)
         self.assertDictEqual(expectedResult, actualResult)
     
