@@ -55,9 +55,9 @@ def _status(cubeFaces = [], cubeCenterColors = []):
     if isFull:
         return {'status': 'full'}
     elif isCross:
-        return {'status': 'spots'}
-    elif isSpot:
         return {'status': 'crosses'}
+    elif isSpot:
+        return {'status': 'spots'}
     else:
         return {'status': 'unknown'}
             
