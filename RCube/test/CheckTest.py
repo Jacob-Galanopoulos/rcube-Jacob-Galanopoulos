@@ -80,8 +80,8 @@ class Test(unittest.TestCase):
     
     def test200_950_CubeHasImpossibleCorner(self):
         expectedResult = {'status': 'error: cube has a corner that can not exist'}
-        parms = {'cube': '112111111522222222333333333444444444555555551666666666',
-                 'integrity': '5572DDB8ED3FF835CFA36C776D8EC29CFD55F134046CFE0169AABD3AD4C4DE9B'}
+        parms = {'cube': 'bbgbbbbbbwoooooooogogggggggrrrrrrrrrwwwwwwwwbyyyyyyyyy',
+                 'integrity': '573D39853F85AFD6E55A0760EFA1EBE8A7EACA41753055D9B41D0B3FC5C2E986'}
         actualResult = check._check(parms)
         self.assertDictEqual(expectedResult, actualResult)
         
@@ -141,8 +141,8 @@ class Test(unittest.TestCase):
         
     def test120_020_NominalCornerInvalidCorners(self):
         expectedResult = {'result': 'False'}
-        cubeFaces = ['113111111', '522222222', '333333333', '444444444', '555555551', '666666666']
-        cubeCenterColors = ['1', '2', '3', '4', '5', '6']
+        cubeFaces = ['bbgbbbbbb', 'woooooooo', 'goggggggg', 'rrrrrrrrr', 'wwwwwwwwb', 'yyyyyyyyy']
+        cubeCenterColors = ['b', 'o', 'g', 'r', 'w', 'y']
         actualResult = check._validateCorners(cubeFaces, cubeCenterColors)
         self.assertDictEqual(expectedResult, actualResult)
     
