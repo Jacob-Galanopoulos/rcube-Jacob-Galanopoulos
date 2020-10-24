@@ -61,7 +61,6 @@ def _status(cubeFaces = [], cubeCenterColors = []):
     else:
         return {'status': 'unknown'}
             
-
 def _validateEdges(cubeFaces = [], cubeCenterColors = []):
     if(len(cubeFaces) == 0): return {'error': 'missing input'}
     if(len(cubeCenterColors) == 0): return {'error': 'missing input'}
@@ -113,4 +112,3 @@ def _validateCorners(cubeFaces = [], cubeCenterColors = []):
             isValidCornerCube = False
             
     return {'result': str(isValidCornerCube)}
-    
