@@ -26,9 +26,9 @@ def _rotate(parms):
     elif (parms['side'] == 'u' or parms['side'] == 'U'):
         rotatedCube = _rotateBottom(cubeFaces, parms['side'])
     
-    outputBytes = bytes(rotatedCube, 'utf-8')
+    outputBytes = bytes(rotatedCube['rotatedCube'], 'utf-8')
     integrity = hashlib.sha256(outputBytes).hexdigest().upper()
-    return {'status': 'rotated', 'cube': rotatedCube, 'integrity': integrity}
+    return {'status': 'rotated', 'cube': rotatedCube['rotatedCube'], 'integrity': integrity}
 
 def _rotateFront(cubeFaces = [], rotateDirection = ''):
     if(len(cubeFaces) == 0): return {'error': 'missing input'}

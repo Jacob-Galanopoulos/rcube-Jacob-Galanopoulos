@@ -7,7 +7,7 @@ import unittest
 import RCube.rotate as rotate
 
 class Test(unittest.TestCase):
-
+    
     def test100_010_NominalRotateFrontRight(self):
         expectedResult = {'status':'rotated', 
                           'cube':'gggggggggwrrwrrwrrbbbbbbbbbooyooyooywwwwwwooorrryyyyyy', 
@@ -45,86 +45,58 @@ class Test(unittest.TestCase):
         self.assertDictEqual(expectedResult, actualResult)
         
     def test100_030_NominalRotateLeftRight(self):
-        expectedResult = {'status': 'rotated', 
-                          'cube': 'woowoowoogggggggggrryrryrrybbbbbbbbbrwwrwwrwwoyyoyyoyy', 
-                          'integrity': '50FAFE62BF3BB0CF259572E7992AC528A4DFEE0BEB8B0F4EAC768E68262262D1'}
-        parms = {'side': 'l','cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy',
-                 'integrity': '546F560EB2D04BAA5F0F0EBB2F74EF9B0EC42B5EF005E2418B69671DAD467FCF'}
-        actualResult = rotate._rotate(parms)
-        self.assertDictEqual(expectedResult, actualResult)
+        expected = {'cube': 'woowoowoogggggggggrryrryrrybbbbbbbbbrwwrwwrwwoyyoyyoyy', 'integrity': '50FAFE62BF3BB0CF259572E7992AC528A4DFEE0BEB8B0F4EAC768E68262262D1', 'status': 'rotated'}
+        parms = {'op': 'rotate', 'cube': 'ooooooooogggggggggrrrrrrrrrbbbbbbbbbwwwwwwwwwyyyyyyyyy', 'side': 'l', 'integrity': '26BF4FF19CDC0D418DF7317E5F8EEF32C21C5B8CBDA492BDC1BF536F34421116'}
+        actual = rotate._rotate(parms)
+        self.assertEqual(expected, actual)
         
     def test100_035_NominalRotateLeftLeft(self):
-        expectedResult = {'status': 'rotated', 
-                          'cube': 'yooyooyoogggggggggrrwrrwrrwbbbbbbbbbowwowwowwryyryyryy', 
-                          'integrity': 'C323A402B51C4594101DB8EF9DD2808100987459684AB6C7B433D4A54D3DD605'}
-        parms = {'side': 'L','cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy',
-                 'integrity': '546F560EB2D04BAA5F0F0EBB2F74EF9B0EC42B5EF005E2418B69671DAD467FCF'}
-        actualResult = rotate._rotate(parms)
-        self.assertDictEqual(expectedResult, actualResult)
+        expected = {'cube': 'yooyooyoogggggggggrrwrrwrrwbbbbbbbbbowwowwowwryyryyryy', 'integrity': 'C323A402B51C4594101DB8EF9DD2808100987459684AB6C7B433D4A54D3DD605', 'status': 'rotated'}
+        parms = {'op': 'rotate', 'cube': 'ooooooooogggggggggrrrrrrrrrbbbbbbbbbwwwwwwwwwyyyyyyyyy', 'side': 'L', 'integrity': '26BF4FF19CDC0D418DF7317E5F8EEF32C21C5B8CBDA492BDC1BF536F34421116'}
+        actual = rotate._rotate(parms)
+        self.assertEqual(expected, actual)
         
     def test100_040_NominalRotateRightRight(self):
-        expectedResult = {'status': 'rotated',
-                          'cube': 'ooyooyooygggggggggrwwrwwrwwbbbbbbbbbwwwwwwooorrryyyyyy', 
-                          'integrity': 'E12EB8E84A67626CCC8AC3DDFB61D714B6BD7624ED08B9CAE2789FFE016276AF'}
-        parms = {'side': 'r','cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy',
-                 'integrity': '546F560EB2D04BAA5F0F0EBB2F74EF9B0EC42B5EF005E2418B69671DAD467FCF'}
-        actualResult = rotate._rotate(parms)
-        self.assertDictEqual(expectedResult, actualResult)
+        expected = {'cube': 'ooyooyooygggggggggwrrwrrwrrbbbbbbbbbwwowwowwoyyryyryyr', 'integrity': '84DF9D66A7A22B043BD6B77947DD548ADA1A74091E8F544E31C1DB2B8F4FE5FB', 'status': 'rotated'}
+        parms = {'op': 'rotate', 'cube': 'ooooooooogggggggggrrrrrrrrrbbbbbbbbbwwwwwwwwwyyyyyyyyy', 'side': 'r', 'integrity': '26BF4FF19CDC0D418DF7317E5F8EEF32C21C5B8CBDA492BDC1BF536F34421116'}
+        actual = rotate._rotate(parms)
+        self.assertEqual(expected, actual)
         
     def test100_045_NominalRotateRightLeft(self):
-        expectedResult = {'status': 'rotated', 
-                          'cube': 'oowoowoowgggggggggyrryrryrrbbbbbbbbbwwwwwwrrroooyyyyyy', 
-                          'integrity': 'B621AC498B7852185B388A6F8A165D7D8086ABBEC7240ED2EF82CD41B34179A8'}
-        parms = {'side': 'R','cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy',
-                 'integrity': '546F560EB2D04BAA5F0F0EBB2F74EF9B0EC42B5EF005E2418B69671DAD467FCF'}
-        actualResult = rotate._rotate(parms)
-        self.assertDictEqual(expectedResult, actualResult)
+        expected = {'cube': 'oowoowoowgggggggggyrryrryrrbbbbbbbbbwwrwwrwwryyoyyoyyo', 'integrity': '343D9B61D1F3FA8206CC7569F9D64A2A8B796E8487A1234CC5FCABD44BEDE263', 'status': 'rotated'}
+        parms = {'op': 'rotate', 'cube': 'ooooooooogggggggggrrrrrrrrrbbbbbbbbbwwwwwwwwwyyyyyyyyy', 'side': 'R', 'integrity': '26BF4FF19CDC0D418DF7317E5F8EEF32C21C5B8CBDA492BDC1BF536F34421116'}
+        actual = rotate._rotate(parms)
+        self.assertEqual(expected, actual)
         
     def test100_050_NominalRotateTopRight(self):
-        expectedResult = {'status': 'rotated', 
-                          'cube': 'gggoooooorrrggggggbbbrrrrrrooobbbbbbwwwwwwwwwyyyyyyyyy', 
-                          'integrity': 'E03151E1977723626C4896A60618759D4821F62EAF753955D97B8B70DDA2DE0B'}
-        parms = {'side': 't','cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy',
-                 'integrity': '546F560EB2D04BAA5F0F0EBB2F74EF9B0EC42B5EF005E2418B69671DAD467FCF'}
-        actualResult = rotate._rotate(parms)
-        self.assertDictEqual(expectedResult, actualResult)
+        expected = {'cube': 'gggoooooorrrggggggbbbrrrrrrooobbbbbbwwwwwwwwwyyyyyyyyy', 'integrity': 'E03151E1977723626C4896A60618759D4821F62EAF753955D97B8B70DDA2DE0B', 'status': 'rotated'}
+        parms = {'op': 'rotate', 'cube': 'ooooooooogggggggggrrrrrrrrrbbbbbbbbbwwwwwwwwwyyyyyyyyy', 'side': 't', 'integrity': '26BF4FF19CDC0D418DF7317E5F8EEF32C21C5B8CBDA492BDC1BF536F34421116'}
+        actual = rotate._rotate(parms)
+        self.assertEqual(expected, actual)
         
     def test100_055_NominalRotateTopLeft(self):
-        expectedResult = {'status': 'rotated', 
-                          'cube': 'bbbooooooooogggggggggrrrrrrrrrbbbbbbwwwwwwwwwyyyyyyyyy', 
-                          'integrity': 'F60549B12BC9C64FD37F15DD1CE16E16712AFC0181A84EA3898F070EBB29C60E'}
-        parms = {'side': 'T','cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy',
-                 'integrity': '546F560EB2D04BAA5F0F0EBB2F74EF9B0EC42B5EF005E2418B69671DAD467FCF'}
-        actualResult = rotate._rotate(parms)
-        self.assertDictEqual(expectedResult, actualResult)
+        expected = {'cube': 'bbbooooooooogggggggggrrrrrrrrrbbbbbbwwwwwwwwwyyyyyyyyy', 'integrity': 'F60549B12BC9C64FD37F15DD1CE16E16712AFC0181A84EA3898F070EBB29C60E', 'status': 'rotated'}
+        parms = {'op': 'rotate', 'cube': 'ooooooooogggggggggrrrrrrrrrbbbbbbbbbwwwwwwwwwyyyyyyyyy', 'side': 'T', 'integrity': '26BF4FF19CDC0D418DF7317E5F8EEF32C21C5B8CBDA492BDC1BF536F34421116'}
+        actual = rotate._rotate(parms)
+        self.assertEqual(expected, actual)
         
     def test100_060_NominalRotateUnderRight(self):
-        expectedResult = {'status': 'rotated',
-                          'cube': 'oooooobbbggggggooorrrrrrgggbbbbbbrrrwwwwwwwwwyyyyyyyyy', 
-                          'integrity': 'BA29EA321B8E33BF21FFCFFBA10A0F81509AEC5208BC37179A4C613093B0FEFD'}
-        parms = {'side': 'u','cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy',
-                 'integrity': '546F560EB2D04BAA5F0F0EBB2F74EF9B0EC42B5EF005E2418B69671DAD467FCF'}
-        actualResult = rotate._rotate(parms)
-        self.assertDictEqual(expectedResult, actualResult)
+        expected = {'cube': 'oooooobbbggggggooorrrrrrgggbbbbbbrrrwwwwwwwwwyyyyyyyyy', 'integrity': 'BA29EA321B8E33BF21FFCFFBA10A0F81509AEC5208BC37179A4C613093B0FEFD', 'status': 'rotated'}
+        parms = {'op': 'rotate', 'cube': 'ooooooooogggggggggrrrrrrrrrbbbbbbbbbwwwwwwwwwyyyyyyyyy', 'side': 'u', 'integrity': '26BF4FF19CDC0D418DF7317E5F8EEF32C21C5B8CBDA492BDC1BF536F34421116'}
+        actual = rotate._rotate(parms)
+        self.assertEqual(expected, actual)
         
     def test100_065_NominalRotateUnderLeft(self):
-        expectedResult = {'status': 'rotated', 
-                          'cube': 'oooooogggggggggrrrrrrrrrbbbbbbbbbooowwwwwwwwwyyyyyyyyy', 
-                          'integrity': '72BD1F1E2822F5FE5A0EB5A75F6E926709A2FD455503016F549EC4E449F954B6'}
-        parms = {'side': 'U','cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy',
-                 'integrity': '546F560EB2D04BAA5F0F0EBB2F74EF9B0EC42B5EF005E2418B69671DAD467FCF'}
-        actualResult = rotate._rotate(parms)
-        self.assertDictEqual(expectedResult, actualResult)
+        expected = {'cube': 'oooooogggggggggrrrrrrrrrbbbbbbbbbooowwwwwwwwwyyyyyyyyy', 'integrity': '72BD1F1E2822F5FE5A0EB5A75F6E926709A2FD455503016F549EC4E449F954B6', 'status': 'rotated'}
+        parms = {'op': 'rotate', 'cube': 'ooooooooogggggggggrrrrrrrrrbbbbbbbbbwwwwwwwwwyyyyyyyyy', 'side': 'U', 'integrity': '26BF4FF19CDC0D418DF7317E5F8EEF32C21C5B8CBDA492BDC1BF536F34421116'}
+        actual = rotate._rotate(parms)
+        self.assertEqual(expected, actual)
         
     def test100_070_NominalRotateExtraParameters(self):
-        expectedResult = {'status':'rotated', 
-                          'cube':'gggggggggwrrwrrwrrbbbbbbbbbooyooyooywwwwwwooorrryyyyyy', 
-                          'integrity':'0F3BDBE402C16D85756959CDEE1649281296A8507CDDF29EC328C72CC758DA28'}
-        parms = {'side': 'f','cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy',
-                 'integrity': '546F560EB2D04BAA5F0F0EBB2F74EF9B0EC42B5EF005E2418B69671DAD467FCF',
-                 'stuff': 'stuff'}
-        actualResult = rotate._rotate(parms)
-        self.assertDictEqual(expectedResult, actualResult)
+        expected = {'cube': 'oooooogggggggggrrrrrrrrrbbbbbbbbbooowwwwwwwwwyyyyyyyyy', 'integrity': '72BD1F1E2822F5FE5A0EB5A75F6E926709A2FD455503016F549EC4E449F954B6', 'status': 'rotated'}
+        parms = {'op': 'rotate', 'cube': 'ooooooooogggggggggrrrrrrrrrbbbbbbbbbwwwwwwwwwyyyyyyyyy', 'side': 'U', 'integrity': '26BF4FF19CDC0D418DF7317E5F8EEF32C21C5B8CBDA492BDC1BF536F34421116', 'stuff': 'stuff'}
+        actual = rotate._rotate(parms)
+        self.assertEqual(expected, actual)
         
     def test200_910_MissingCubeKey(self):
         expectedResult = {'status': 'error: missing cube key'}
