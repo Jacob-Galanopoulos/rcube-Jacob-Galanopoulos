@@ -168,119 +168,152 @@ class Test(unittest.TestCase):
         actualResult = rotate._rotate(parms)
         self.assertDictEqual(expectedResult, actualResult)
         
-    def test110_010_NominalFrontBackRotate_f(self):
+    def test110_010_NominalRotateFrontRight(self):
         expectedResult = {'rotatedCube': 'gggggggggwrrwrrwrrbbbbbbbbbooyooyooywwwwwwooorrryyyyyy'}
         cubeFaces = ['ggggggggg','rrrrrrrrr','bbbbbbbbb','ooooooooo','wwwwwwwww','yyyyyyyyy']
         rotateDirection = 'f'
-        actualResult = rotate._execFrontAndBack(cubeFaces, rotateDirection)
+        actualResult = rotate._rotateFront(cubeFaces, rotateDirection)
         self.assertDictEqual(expectedResult, actualResult)
         
-    def test110_020_NominalFrontBackRotate_F(self):
-        expectedResult = {'rotatedCube': 'oooooooooyggyggyggrrrrrrrrrbbwbbwbbwwwwwwwgggbbbyyyyyy'}
+    def test110_020_NominalRotateFrontLeft(self):
+        expectedResult = {'rotatedCube': 'gggggggggyrryrryrrbbbbbbbbboowoowoowwwwwwwrrroooyyyyyy'}
         cubeFaces = ['ggggggggg','rrrrrrrrr','bbbbbbbbb','ooooooooo','wwwwwwwww','yyyyyyyyy']
         rotateDirection = 'F'
-        actualResult = rotate._execFrontAndBack(cubeFaces, rotateDirection)
+        actualResult = rotate._rotateFront(cubeFaces, rotateDirection)
         self.assertDictEqual(expectedResult, actualResult)
         
-    def test110_030_NominalFrontBackRotate_b(self):
+    def test110_030_NominalRotateBackRight(self):
         expectedResult = {'rotatedCube': 'oooooooooggyggyggyrrrrrrrrrwbbwbbwbbgggwwwwwwyyyyyybbb'}
-        cubeFaces = ['ggggggggg','rrrrrrrrr','bbbbbbbbb','ooooooooo','wwwwwwwww','yyyyyyyyy']
+        cubeFaces = ['ooooooooo','ggggggggg','rrrrrrrrr','bbbbbbbbb','wwwwwwwww','yyyyyyyyy']
         rotateDirection = 'b'
-        actualResult = rotate._execFrontAndBack(cubeFaces, rotateDirection)
+        actualResult = rotate._rotateBack(cubeFaces, rotateDirection)
         self.assertDictEqual(expectedResult, actualResult)
         
-    def test110_040_NominalFrontBackRotate_B(self):
+    def test110_040_NominalRotateBackLeft(self):
         expectedResult = {'rotatedCube': 'oooooooooggwggwggwrrrrrrrrrybbybbybbbbbwwwwwwyyyyyyggg'}
-        cubeFaces = ['ggggggggg','rrrrrrrrr','bbbbbbbbb','ooooooooo','wwwwwwwww','yyyyyyyyy']
+        cubeFaces = ['ooooooooo','ggggggggg','rrrrrrrrr','bbbbbbbbb','wwwwwwwww','yyyyyyyyy']
         rotateDirection = 'B'
-        actualResult = rotate._execFrontAndBack(cubeFaces, rotateDirection)
+        actualResult = rotate._rotateBack(cubeFaces, rotateDirection)
+        self.assertDictEqual(expectedResult, actualResult)
+    
+    def test110_050_NominalRotateLeftRight(self):
+        expectedResult = {'rotatedCube': 'woowoowoogggggggggrryrryrrybbbbbbbbbrwwrwwrwwoyyoyyoyy'}
+        cubeFaces = ['ooooooooo','ggggggggg','rrrrrrrrr','bbbbbbbbb','wwwwwwwww','yyyyyyyyy']
+        rotateDirection = 'l'
+        actualResult = rotate._rotateLeft(cubeFaces, rotateDirection)
+        self.assertDictEqual(expectedResult, actualResult)
+        
+    def test110_060_NominalRotateLeftLeft(self):
+        expectedResult = {'rotatedCube': 'yooyooyoogggggggggrrwrrwrrwbbbbbbbbbowwowwowwryyryyryy'}
+        cubeFaces = ['ooooooooo','ggggggggg','rrrrrrrrr','bbbbbbbbb','wwwwwwwww','yyyyyyyyy']
+        rotateDirection = 'L'
+        actualResult = rotate._rotateLeft(cubeFaces, rotateDirection)
+        self.assertDictEqual(expectedResult, actualResult)
+        
+    def test110_070_NominalRotateRightRight(self):
+        expectedResult = {'rotatedCube': 'ooyooyooygggggggggwrrwrrwrrbbbbbbbbbwwowwowwoyyryyryyr'}
+        cubeFaces = ['ooooooooo','ggggggggg','rrrrrrrrr','bbbbbbbbb','wwwwwwwww','yyyyyyyyy']
+        rotateDirection = 'r'
+        actualResult = rotate._rotateRight(cubeFaces, rotateDirection)
+        self.assertDictEqual(expectedResult, actualResult)
+        
+    def test110_080_NominalRotateRightLeft(self):
+        expectedResult = {'rotatedCube': 'oowoowoowgggggggggyrryrryrrbbbbbbbbbwwrwwrwwryyoyyoyyo'}
+        cubeFaces = ['ooooooooo','ggggggggg','rrrrrrrrr','bbbbbbbbb','wwwwwwwww','yyyyyyyyy']
+        rotateDirection = 'R'
+        actualResult = rotate._rotateRight(cubeFaces, rotateDirection)
+        self.assertDictEqual(expectedResult, actualResult)
+        
+    def test110_085_NominalRotateTopRight(self):
+        expectedResult = {'rotatedCube': 'gggoooooorrrggggggbbbrrrrrrooobbbbbbwwwwwwwwwyyyyyyyyy'}
+        cubeFaces = ['ooooooooo','ggggggggg','rrrrrrrrr','bbbbbbbbb','wwwwwwwww','yyyyyyyyy']
+        rotateDirection = 't'
+        actualResult = rotate._rotateTop(cubeFaces, rotateDirection)
+        self.assertDictEqual(expectedResult, actualResult)
+        
+    def test110_090_NominalRotateTopLeft(self):
+        expectedResult = {'rotatedCube': 'bbbooooooooogggggggggrrrrrrrrrbbbbbbwwwwwwwwwyyyyyyyyy'}
+        cubeFaces = ['ooooooooo','ggggggggg','rrrrrrrrr','bbbbbbbbb','wwwwwwwww','yyyyyyyyy']
+        rotateDirection = 'T'
+        actualResult = rotate._rotateTop(cubeFaces, rotateDirection)
+        self.assertDictEqual(expectedResult, actualResult)
+    
+    def test110_095_NominalRotateBottomRight(self):
+        expectedResult = {'rotatedCube': 'oooooobbbggggggooorrrrrrgggbbbbbbrrrwwwwwwwwwyyyyyyyyy'}
+        cubeFaces = ['ooooooooo','ggggggggg','rrrrrrrrr','bbbbbbbbb','wwwwwwwww','yyyyyyyyy']
+        rotateDirection = 'u'
+        actualResult = rotate._rotateBottom(cubeFaces, rotateDirection)
+        self.assertDictEqual(expectedResult, actualResult)
+        
+    def test110_100_NominalRotateBottomLeft(self):
+        expectedResult = {'rotatedCube': 'oooooogggggggggrrrrrrrrrbbbbbbbbbooowwwwwwwwwyyyyyyyyy'}
+        cubeFaces = ['ooooooooo','ggggggggg','rrrrrrrrr','bbbbbbbbb','wwwwwwwww','yyyyyyyyy']
+        rotateDirection = 'U'
+        actualResult = rotate._rotateBottom(cubeFaces, rotateDirection)
         self.assertDictEqual(expectedResult, actualResult)
         
     def test210_910_MissingcubeFaces(self):
         expectedResult = {'error': 'missing input'}
         rotateDirection = 'f'
-        actualResult = rotate._execFrontAndBack(rotateDirection)
+        actualResult = rotate._rotateFront(rotateDirection)
         self.assertDictEqual(expectedResult, actualResult)
         
     def test210_920_MissingcubeFaces(self):
         expectedResult = {'error': 'missing input'}
-        actualResult = rotate._execFrontAndBack()
+        actualResult = rotate._rotateFront()
         self.assertDictEqual(expectedResult, actualResult)
         
-    def test120_010_NominalLeftRightRotate_l(self):
-        expectedResult = {'rotatedCube': 'woowoowoogggggggggrryrryrrybbbbbbbbbrwwrwwrwwoyyoyyoyy'}
-        cubeFaces = ['ggggggggg','rrrrrrrrr','bbbbbbbbb','ooooooooo','wwwwwwwww','yyyyyyyyy']
-        rotateDirection = 'l'
-        actualResult = rotate._execLeftAndRight(cubeFaces, rotateDirection)
-        self.assertDictEqual(expectedResult, actualResult)
-        
-    def test120_020_NominalLeftRightRotate_L(self):
-        expectedResult = {'rotatedCube': 'yooyooyoogggggggggrrwrrwrrwbbbbbbbbbowwowwowwryyryyryy'}
-        cubeFaces = ['ggggggggg','rrrrrrrrr','bbbbbbbbb','ooooooooo','wwwwwwwww','yyyyyyyyy']
-        rotateDirection = 'L'
-        actualResult = rotate._execLeftAndRight(cubeFaces, rotateDirection)
-        self.assertDictEqual(expectedResult, actualResult)
-        
-    def test120_030_NominalLeftRightRotate_r(self):
-        expectedResult = {'rotatedCube': 'ooyooyooygggggggggrwwrwwrwwbbbbbbbbbwwwwwwooorrryyyyyy'}
-        cubeFaces = ['ggggggggg','rrrrrrrrr','bbbbbbbbb','ooooooooo','wwwwwwwww','yyyyyyyyy']
-        rotateDirection = 'r'
-        actualResult = rotate._execLeftAndRight(cubeFaces, rotateDirection)
-        self.assertDictEqual(expectedResult, actualResult)
-        
-    def test120_040_NominalLeftRightRotate_R(self):
-        expectedResult = {'rotatedCube': 'oowoowoowgggggggggyrryrryrrbbbbbbbbbwwwwwwrrroooyyyyyy'}
-        cubeFaces = ['ggggggggg','rrrrrrrrr','bbbbbbbbb','ooooooooo','wwwwwwwww','yyyyyyyyy']
-        rotateDirection = 'R'
-        actualResult = rotate._execLeftAndRight(cubeFaces, rotateDirection)
-        self.assertDictEqual(expectedResult, actualResult)
-        
-    def test220_910_MissingcubeFaces(self):
+    def test210_930_MissingcubeFaces(self):
         expectedResult = {'error': 'missing input'}
-        rotateDirection = 'r'
-        actualResult = rotate._execLeftAndRight(rotateDirection)
+        rotateDirection = 'f'
+        actualResult = rotate._rotateBack(rotateDirection)
         self.assertDictEqual(expectedResult, actualResult)
         
-    def test220_920_MissingcubeFaces(self):
+    def test210_940_MissingcubeFaces(self):
         expectedResult = {'error': 'missing input'}
-        actualResult = rotate._execLeftAndRight()
+        actualResult = rotate._rotateBack()
         self.assertDictEqual(expectedResult, actualResult)
         
-    def test130_010_NominalTopBottomRotate_t(self):
-        expectedResult = {'rotatedCube': 'gggoooooorrrggggggbbbrrrrrrooobbbbbbwwwwwwwwwyyyyyyyyy'}
-        cubeFaces = ['ggggggggg','rrrrrrrrr','bbbbbbbbb','ooooooooo','wwwwwwwww','yyyyyyyyy']
-        rotateDirection = 't'
-        actualResult = rotate._execTopAndBottom(cubeFaces, rotateDirection)
-        self.assertDictEqual(expectedResult, actualResult)
-        
-    def test130_020_NominalTopBottomRotate_T(self):
-        expectedResult = {'rotatedCube': 'bbbooooooooogggggggggrrrrrrrrrbbbbbbwwwwwwwwwyyyyyyyyy'}
-        cubeFaces = ['ggggggggg','rrrrrrrrr','bbbbbbbbb','ooooooooo','wwwwwwwww','yyyyyyyyy']
-        rotateDirection = 'T'
-        actualResult = rotate._execTopAndBottom(cubeFaces, rotateDirection)
-        self.assertDictEqual(expectedResult, actualResult)
-        
-    def test130_030_NominalTopBottomRotate_u(self):
-        expectedResult = {'rotatedCube': 'oooooobbbggggggooorrrrrrgggbbbbbbrrrwwwwwwwwwyyyyyyyyy'}
-        cubeFaces = ['ggggggggg','rrrrrrrrr','bbbbbbbbb','ooooooooo','wwwwwwwww','yyyyyyyyy']
-        rotateDirection = 'u'
-        actualResult = rotate._execTopAndBottom(cubeFaces, rotateDirection)
-        self.assertDictEqual(expectedResult, actualResult)
-        
-    def test130_040_NominalTopBottomRotate_U(self):
-        expectedResult = {'rotatedCube': 'oooooogggggggggrrrrrrrrrbbbbbbbbbooowwwwwwwwwyyyyyyyyy'}
-        cubeFaces = ['ggggggggg','rrrrrrrrr','bbbbbbbbb','ooooooooo','wwwwwwwww','yyyyyyyyy']
-        rotateDirection = 'U'
-        actualResult = rotate._execTopAndBottom(cubeFaces, rotateDirection)
-        self.assertDictEqual(expectedResult, actualResult)
-        
-    def test230_910_MissingcubeFaces(self):
+    def test210_950_MissingcubeFaces(self):
         expectedResult = {'error': 'missing input'}
-        rotateDirection = 't'
-        actualResult = rotate._execTopAndBottom(rotateDirection)
+        rotateDirection = 'f'
+        actualResult = rotate._rotateLeft(rotateDirection)
         self.assertDictEqual(expectedResult, actualResult)
         
-    def test230_920_MissingcubeFaces(self):
+    def test210_960_MissingcubeFaces(self):
         expectedResult = {'error': 'missing input'}
-        actualResult = rotate._execTopAndBottom()
+        actualResult = rotate._rotateLeft()
+        self.assertDictEqual(expectedResult, actualResult)
+        
+    def test210_970_MissingcubeFaces(self):
+        expectedResult = {'error': 'missing input'}
+        rotateDirection = 'f'
+        actualResult = rotate._rotateRight(rotateDirection)
+        self.assertDictEqual(expectedResult, actualResult)
+        
+    def test210_975_MissingcubeFaces(self):
+        expectedResult = {'error': 'missing input'}
+        actualResult = rotate._rotateRight()
+        self.assertDictEqual(expectedResult, actualResult)
+        
+    def test210_980_MissingcubeFaces(self):
+        expectedResult = {'error': 'missing input'}
+        rotateDirection = 'f'
+        actualResult = rotate._rotateTop(rotateDirection)
+        self.assertDictEqual(expectedResult, actualResult)
+        
+    def test210_985_MissingcubeFaces(self):
+        expectedResult = {'error': 'missing input'}
+        actualResult = rotate._rotateTop()
+        self.assertDictEqual(expectedResult, actualResult)
+        
+    def test210_990_MissingcubeFaces(self):
+        expectedResult = {'error': 'missing input'}
+        rotateDirection = 'f'
+        actualResult = rotate._rotateBottom(rotateDirection)
+        self.assertDictEqual(expectedResult, actualResult)
+        
+    def test210_995_MissingcubeFaces(self):
+        expectedResult = {'error': 'missing input'}
+        actualResult = rotate._rotateBottom()
         self.assertDictEqual(expectedResult, actualResult)
