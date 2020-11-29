@@ -108,7 +108,7 @@ class Test(unittest.TestCase):
         self.assertDictEqual(expectedResult, actualResult)
         
     def test200_940_Invalid_Cube_Key(self):
-        expectedResult = {'status': 'error: cube does not exactly have 9 of each element'}
+        expectedResult = {'status': 'error: incorrect integrity value'}
         parms = {'side': 'f','cube': 'gggggggggbbbbbbbbbyyyyyyyyyrrrrrrrrriiiiiiiiissssssssss',
                  'integrity': '546F560EB2D04BAA5F0F0EBB2F74EF9B0EC42B5EF005E2418B69671DAD467FCF'}
         actualResult = rotate._rotate(parms)

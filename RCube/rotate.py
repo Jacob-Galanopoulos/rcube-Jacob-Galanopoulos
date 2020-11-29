@@ -13,7 +13,7 @@ def _rotate(parms):
     validCube = check._check(parms)
     cubeFaces = [parms['cube'][i:i+9] for i in range(0, len(parms['cube']), 9)]
     
-    if ('error' in validCube): return validCube
+    if ('error' in validCube['status']): return validCube
     elif (parms['side'] == 'f' or parms['side'] == 'F'):
         rotatedCube = _rotateFront(cubeFaces, parms['side'])
     elif (parms['side'] == 'b' or parms['side'] == 'B'):
