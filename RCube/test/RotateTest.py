@@ -101,15 +101,15 @@ class Test(unittest.TestCase):
         self.assertDictEqual(expectedResult, actualResult)
         
     def test200_930_Missing_Integrity_Key(self):
-        expectedResult = {'status': 'error: missing side key'}
+        expectedResult = {'status': 'error: missing integrity key'}
         parms = {'side': 'f',
-                 'cube':'gggggggggwrrwrrwrrbbbbbbbbbooyooyooywwwwwwooorrryyyyyy'}
+                 'cube':'gggggggggbbbbbbbbbyyyyyyyyyrrrrrrrrriiiiiiiiisssssssss'}
         actualResult = rotate._rotate(parms)
         self.assertDictEqual(expectedResult, actualResult)
         
     def test200_940_Invalid_Cube_Key(self):
         expectedResult = {'status': 'error: cube does not exactly have 9 of each element'}
-        parms = {'side': 'f','cube': 'ggggggggggrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy',
+        parms = {'side': 'f','cube': 'gggggggggbbbbbbbbbyyyyyyyyyrrrrrrrrriiiiiiiiissssssssss',
                  'integrity': '546F560EB2D04BAA5F0F0EBB2F74EF9B0EC42B5EF005E2418B69671DAD467FCF'}
         actualResult = rotate._rotate(parms)
         self.assertDictEqual(expectedResult, actualResult)
@@ -123,7 +123,7 @@ class Test(unittest.TestCase):
         
     def test200_960_InvalidIntegrityKey(self):
         expectedResult = {'status': 'error: incorrect integrity value'}
-        parms = {'side': 'f','cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy',
+        parms = {'side': 'f','cube': 'gggggggggbbbbbbbbbyyyyyyyyyrrrrrrrrriiiiiiiiisssssssss',
                  'integrity': '547F560EB2D04BAA5F0F0EBB2F74EF9B0EC42B5EF005E2418B69671DAD467FCF'}
         actualResult = rotate._rotate(parms)
         self.assertDictEqual(expectedResult, actualResult)

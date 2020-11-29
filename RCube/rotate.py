@@ -5,6 +5,7 @@ directions = ['f', 'F', 'b', 'B', 'r', 'R', 'l', 'L', 't', 'T', 'u', 'U']
 def _rotate(parms):
     if(not('cube' in parms)): return {'status': 'error: missing cube key'}
     if(parms['cube'] == ''): return {'status': 'error: missing cube value'}
+    if(not('integrity' in parms)): return {'status': 'error: missing integrity key'}
     if(not('side' in parms)): return {'status': 'error: missing side key'}
     if(not(parms['side'] in directions)):
         return {'status': 'error: invalid side value'}
