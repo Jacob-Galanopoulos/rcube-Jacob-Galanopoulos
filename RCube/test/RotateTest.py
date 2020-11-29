@@ -9,40 +9,28 @@ import RCube.rotate as rotate
 class Test(unittest.TestCase):
     
     def test100_010_NominalRotateFrontRight(self):
-        expectedResult = {'status':'rotated', 
-                          'cube':'gggggggggwrrwrrwrrbbbbbbbbbooyooyooywwwwwwooorrryyyyyy', 
-                          'integrity':'0F3BDBE402C16D85756959CDEE1649281296A8507CDDF29EC328C72CC758DA28'}
-        parms = {'side': 'f','cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy',
-                 'integrity': '546F560EB2D04BAA5F0F0EBB2F74EF9B0EC42B5EF005E2418B69671DAD467FCF'}
-        actualResult = rotate._rotate(parms)
-        self.assertDictEqual(expectedResult, actualResult)
+        expected = {'cube': 'ooooooooowggwggwggrrrrrrrrrbbybbybbywwwwwwbbbgggyyyyyy', 'integrity': '8449F88B8986E08AA51135B292FE968A6EB10050FC880348486EF853BC10A60B', 'status': 'rotated'}
+        parms = {'op': 'rotate', 'cube': 'gggggggggyyyyyyyyybbbbbbbbbwwwwwwwwwrrrrrrrrrooooooooo', 'side': 'f', 'integrity': '763F71B164EF77E6916F1C2CBAEB3B2C3CA9A876AC6A94A97D6B0EF1C489E289'}
+        actual = rotate._rotate(parms)
+        self.assertEqual(expected, actual)
         
     def test100_015_NominalRotateFrontLeft(self):
-        expectedResult = {'status': 'rotated', 
-                          'cube': 'oooooooooyggyggyggrrrrrrrrrbbwbbwbbwwwwwwwgggbbbyyyyyy', 
-                          'integrity': '0725FE3DE940D22412488858679E49038627A91F615FE641A3CA897B08F14C09'}
-        parms = {'side': 'F','cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy',
-                 'integrity': '546F560EB2D04BAA5F0F0EBB2F74EF9B0EC42B5EF005E2418B69671DAD467FCF'}
-        actualResult = rotate._rotate(parms)
-        self.assertDictEqual(expectedResult, actualResult)
+        expected = {'cube': 'oooooooooyggyggyggrrrrrrrrrbbwbbwbbwwwwwwwgggbbbyyyyyy', 'integrity': '0725FE3DE940D22412488858679E49038627A91F615FE641A3CA897B08F14C09', 'status': 'rotated'}
+        parms = {'op': 'rotate', 'cube': 'gggggggggyyyyyyyyybbbbbbbbbwwwwwwwwwrrrrrrrrrooooooooo', 'side': 'F', 'integrity': '763F71B164EF77E6916F1C2CBAEB3B2C3CA9A876AC6A94A97D6B0EF1C489E289'}
+        actual = rotate._rotate(parms)
+        self.assertEqual(expected, actual)
         
     def test100_020_NominalRotateBackRight(self):
-        expectedResult = {'status': 'rotated', 
-                          'cube': 'oooooooooggyggyggyrrrrrrrrrwbbwbbwbbgggwwwwwwyyyyyybbb', 
-                          'integrity': 'CF7F7CA7F091782686E19721F50C78B9D46408A00A992E414D8B2D33C999D9B9'}
-        parms = {'side': 'b','cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy',
-                 'integrity': '546F560EB2D04BAA5F0F0EBB2F74EF9B0EC42B5EF005E2418B69671DAD467FCF'}
-        actualResult = rotate._rotate(parms)
-        self.assertDictEqual(expectedResult, actualResult)
+        expected = {'cube': 'oooooooooggyggyggyrrrrrrrrrwbbwbbwbbgggwwwwwwyyyyyybbb', 'integrity': 'CF7F7CA7F091782686E19721F50C78B9D46408A00A992E414D8B2D33C999D9B9', 'status': 'rotated'}
+        parms = {'op': 'rotate', 'cube': 'gggggggggyyyyyyyyybbbbbbbbbwwwwwwwwwrrrrrrrrrooooooooo', 'side': 'b', 'integrity': '763F71B164EF77E6916F1C2CBAEB3B2C3CA9A876AC6A94A97D6B0EF1C489E289'}
+        actual = rotate._rotate(parms)
+        self.assertEqual(expected, actual)
         
     def test100_025_NominalRotateBackLeft(self):
-        expectedResult = {'status': 'rotated', 
-                          'cube': 'oooooooooggwggwggwrrrrrrrrrybbybbybbbbbwwwwwwyyyyyyggg', 
-                          'integrity': '0734348E61CFFD1BFDDD3989819FC035ED5128230E2A04B4C1346BE1086934E1'}
-        parms = {'side': 'B','cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy',
-                 'integrity': '546F560EB2D04BAA5F0F0EBB2F74EF9B0EC42B5EF005E2418B69671DAD467FCF'}
-        actualResult = rotate._rotate(parms)
-        self.assertDictEqual(expectedResult, actualResult)
+        expected = {'cube': 'oooooooooggwggwggwrrrrrrrrrybbybbybbbbbwwwwwwyyyyyyggg', 'integrity': '0734348E61CFFD1BFDDD3989819FC035ED5128230E2A04B4C1346BE1086934E1', 'status': 'rotated'}
+        parms = {'op': 'rotate', 'cube': 'gggggggggyyyyyyyyybbbbbbbbbwwwwwwwwwrrrrrrrrrooooooooo', 'side': 'B', 'integrity': '763F71B164EF77E6916F1C2CBAEB3B2C3CA9A876AC6A94A97D6B0EF1C489E289'}
+        actual = rotate._rotate(parms)
+        self.assertEqual(expected, actual)
         
     def test100_030_NominalRotateLeftRight(self):
         expected = {'cube': 'woowoowoogggggggggrryrryrrybbbbbbbbbrwwrwwrwwoyyoyyoyy', 'integrity': '50FAFE62BF3BB0CF259572E7992AC528A4DFEE0BEB8B0F4EAC768E68262262D1', 'status': 'rotated'}
